@@ -1,0 +1,15 @@
+<div *ngIf="btnActionType == 'submit'">
+    <button mat-raised-button color="primary" type="{{ btnActionType }}" class="defaultBtn" [style]="customStyle" (click)="formValidation()">
+        <i *ngIf="fontawesome != ''" class="{{ fontawesome }}"></i>
+        <span *ngIf="fontawesome != '' && value != ''">&nbsp;</span>
+        <span *ngIf="value != ''">{{ value }}</span>
+    </button>
+</div>
+
+<div *ngIf="btnActionType != 'submit'">
+    <button mat-raised-button color="primary" type="{{ btnActionType }}" class="defaultBtn" [style]="customStyle">
+        <i *ngIf="fontawesome != ''" class="{{ fontawesome }}"></i>
+        <span *ngIf="fontawesome != '' && value != ''">&nbsp;</span>
+        <span *ngIf="value != ''">{{ value }}</span>
+    </button>
+</div>

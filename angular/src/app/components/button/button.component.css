@@ -1,0 +1,18 @@
+.defaultBtn {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginStyle {
+    width: 100%;
+    color: var(--white-color);
+    font-size: 16px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

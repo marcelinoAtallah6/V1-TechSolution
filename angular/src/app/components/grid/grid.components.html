@@ -1,0 +1,15 @@
+<div class="ag-container">
+    <ag-grid-angular #agGrid 
+                     [style]="agStyle" 
+                     class="ag-theme-alpine" 
+                     [columnDefs]="ColDef" 
+                     rowSelection="multiple" 
+                     [rowModelType]="rowModelType"
+                     [animateRows]="true" 
+                     (gridReady)="onGridReady($event)"
+                     [pagination]="pagination"
+                     [paginationPageSize]="paginationPageSize"
+                     (rowSelected)="onRowSelected($event)"
+                     (selectionChanged)="onSelectionChanged($event)">
+    </ag-grid-angular>
+</div>

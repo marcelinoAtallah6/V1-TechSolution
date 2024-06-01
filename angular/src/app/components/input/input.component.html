@@ -1,0 +1,86 @@
+<!-- <mdb-form-control> -->
+    <!-- <input mdbInput type="text" id="form1" class="form-control" />
+    <label mdbLabel class="form-label" for="form1">{{label}}</label> -->
+  <!-- </mdb-form-control> -->
+
+ <div class="form-group mb-3">
+
+    <div *ngIf="type == 'hidden'">
+        <input type="hidden"
+            (input)="onChange($event)"
+            (blur)="touched"
+            [name]="fieldName"
+            [id]="fieldName"
+            [value]="value"
+            [disabled]="isDisabled">
+    </div>
+
+    <div *ngIf="type == 'text' || type == 'email' || type == 'number' || type == 'color' || type == 'password'
+        || type == 'search' || type == 'tel' || type == 'time' || type == 'url' || type == 'week' || type == 'date'
+        || type == 'datetime-local' || type == 'month'">
+        
+        <mat-form-field [appearance]="matAppearance" [floatLabel]="floatLabel">
+            <mat-label>{{ label }}</mat-label>
+            <input matInput
+                type="{{ type }}"
+                placeholder="{{ placeholder }}"
+                required="{{ required }}"
+                (input)="onChange($event)"
+                (blur)="touched"
+                [id]="fieldName"
+                [name]="fieldName"
+                [value]="value"
+                [disabled]="isDisabled"
+                [formControl]="formField"
+                [errorStateMatcher]="matcher">
+            <mat-error *ngIf="formField.hasError('required')">
+                <field-error errorMessage="{{ label }} is required"></field-error>
+            </mat-error>
+            <mat-error *ngIf="formField.hasError('pattern')">
+                <field-error errorMessage="Invalid input"></field-error>
+            </mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div *ngIf="type == 'textarea'">
+
+        <mat-form-field [appearance]="matAppearance" [floatLabel]="floatLabel">
+            <mat-label>{{ label }}</mat-label>
+            <textarea matInput
+                placeholder="{{ placeholder }}"
+                required="{{ required }}"
+                cols="{{ textareaCols }}"
+                rows="{{ textareaRows }}"
+                (input)="onChange($event)"
+                (blur)="touched"
+                [id]="fieldName"
+                [name]="fieldName"
+                [value]="value"
+                [disabled]="isDisabled"
+                [formControl]="formField"
+                [errorStateMatcher]="matcher">
+            </textarea>
+            <mat-error *ngIf="formField.hasError('required')">
+                <field-error errorMessage="{{ label }} is required"></field-error>
+            </mat-error>
+            <mat-error *ngIf="formField.hasError('pattern')">
+                <field-error errorMessage="Invalid input"></field-error>
+            </mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div *ngIf="type == 'checkbox'">
+        <mat-checkbox required="{{ required }}"
+                      (input)="onChange($event)"
+                      (blur)="touched"
+                      [id]="fieldName"
+                      [name]="fieldName"
+                      [value]="value"
+                      [disabled]="isDisabled"
+                      [formControl]="formField">{{ label }}</mat-checkbox>
+    </div>
+    
+</div>
+

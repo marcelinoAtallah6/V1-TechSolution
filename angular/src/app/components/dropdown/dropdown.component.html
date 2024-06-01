@@ -1,0 +1,38 @@
+<div class="form-group mb-5">
+
+  <input matInput 
+    [id]="fieldName" 
+    [name]="fieldName" 
+    [errorStateMatcher]="matcher" 
+    [formControl]="formField" 
+    [value]="value" 
+    (blur)="touched" 
+    type="text" 
+    class="hiddenInput">
+
+  <mat-form-field [appearance]="matAppearance" [floatLabel]="floatLabel">
+    <mat-label>{{ label }}</mat-label>
+    <mat-select multiple
+                *ngIf="multiple" 
+                [(value)]="selectedItems"
+                [placeholder]="placeholder"
+                [formControl]="formField"
+                required="{{ required }}"
+                (blur)="touched">
+      <mat-option (onSelectionChange)="change($event)" *ngFor="let data of dropdownList" [value]="data.name">{{ data.name }}</mat-option>
+    </mat-select>
+
+    <mat-select *ngIf="!multiple" 
+                [(value)]="selectedItems"
+                [placeholder]="placeholder" 
+                required="{{ required }}"
+                (blur)="touched">
+      <mat-option (onSelectionChange)="change($event)" *ngFor="let data of dropdownList" [value]="data.name">{{ data.name }}</mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="formField.hasError('required')">
+      <field-error errorMessage="{{ label }} is required"></field-error>
+    </mat-error>
+
+  </mat-form-field>
+</div>

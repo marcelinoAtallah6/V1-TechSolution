@@ -1,0 +1,4 @@
+<label [ngClass]="{'label-required': required}">
+    {{ text }}
+    <span *ngIf="required" class="label-required-span">*</span>
+</label>

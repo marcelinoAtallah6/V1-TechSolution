@@ -1,0 +1,823 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import "../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css";
+
+:root {
+  /** Logo Colors **/
+  --logo-color-1: rgb(13, 87, 52);
+  --logo-color-2: rgb(223, 60, 63);
+  --logo-color-3: rgb(10, 123, 193);
+
+  /** Preconfigured color palette **/
+  --black-color: #263238;
+  --white-color: rgb(255, 255, 255);
+
+  /** Colors & sizes used for app layout **/
+  --app-bg-color: rgb(255, 255, 255) !important;
+  --app-nav-bg-color: rgb(238, 238, 238);
+  --app-layout-borders: 5px;
+  
+  /** Alertify **/
+  --alertifyjs-bg-color: #D3D3D3;
+
+  /** Side Navigation Height Preferences **/
+  --side-nav-top-section-height: 10vh;
+  --side-nav-body-section-height: 80vh;
+  --side-nav-footer-section-height: 10vh;
+}
+
+html,
+body {
+  background-color: var(--white-color);
+ 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto-Regular", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mat-raised-button.mat-primary
+{
+
+  background-color: var(--black-color)  !important;
+
+}
+
+
+/* modal css */
+
+.modal-content{
+
+  /* @media (max-height : 1176px) {
+    height: 950px;
+    }
+
+  @media (max-height : 976px) {
+    height: 650px;
+    } */
+    
+  @media (max-height : 676px) {
+    height: 410px;
+    }
+
+  @media (max-height : 460px) {
+    height: 200px; 
+  }
+  @media (max-height : 276px) {
+  height: 100px;
+  }
+  overflow-y: scroll;
+
+} 
+
+.modal-content::-webkit-scrollbar {
+  width: 8px; /* Sets the width of the scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #888888; /* Sets the color of the scrollbar thumb */
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Sets the color of the scrollbar track */
+}
+
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  width: 100%;
+  /* height: 600px; */
+  height: auto;
+  overflow-y: scroll;
+  scrollbar-width: thin; /* Applies custom styling to the scrollbar */
+  scrollbar-color: #888888 #ffffff; /* Sets the color of the scrollbar */
+  display: flex;
+}
+
+
+ .modal-body::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: #888888; 
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background-color: #ffffff; 
+} 
+
+
+.modal-body .image-container 
+{
+  width:100%;
+  height: 566px;
+}
+
+.modal-body  .image-container img {
+  width: 100%;
+  height: 566px;
+  left: 15px;
+  position: relative;
+} 
+
+.modal-body .form-container
+{
+  width:100%;
+  height: 630px;
+}
+/* end modal css */
+
+
+.modal-header h4 {
+  margin: 0 !important;
+}
+
+.modal-header button {
+  background-color: transparent;
+  font-size: 20px;
+  border: 0;
+}
+
+.modal-footer {
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center; 
+  justify-content: space-around;
+}
+
+/* query builder css */
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: var(--black-color);
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle
+{
+  background-color: var(--black-color);
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: var(--black-color);;
+}
+
+
+/* .mat-radio-button.mat-accent:hover {
+  border-color: var(--black-color);
+} */
+
+.q-right-align {
+  float: right !important;
+  width: 150px !important;
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
+
+.q-tree-container{
+  /* width: 850px !important; */
+  width: 1160px  !important;
+  overflow: hidden !important;
+  -webkit-transition: max-height .25s ease-in  !important;
+  transition: max-height .25s ease-in !important;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important; */
+}
+
+@media (max-width: 2768px) {
+  .q-tree-container {
+    width: 2360px !important;
+  }
+}
+
+@media (max-width: 2568px) {
+  .q-tree-container {
+    width: 2160px !important;
+  }
+}
+
+@media (max-width: 2368px) {
+  .q-tree-container {
+    width: 1960px !important;
+  }
+}
+
+@media (max-width: 2168px) {
+  .q-tree-container {
+    width: 1760px !important;
+  }
+}
+
+@media (max-width: 1968px) {
+  .q-tree-container {
+    width: 1560px !important;
+  }
+}
+
+@media (max-width: 1768px) {
+  .q-tree-container {
+    width: 1360px !important;
+  }
+}
+
+@media (max-width: 1568px) {
+  .q-tree-container {
+    width: 1160px !important;
+  }
+}
+
+@media (max-width: 1368px) {
+  .q-tree-container {
+    width: 960px !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .q-tree-container {
+    width: 720px !important;
+  }
+}
+
+@media (max-width: 868px) {
+  .q-tree-container {
+    width: 500px !important;
+    /* Add any other specific styles for smaller screens if needed */
+  }
+}
+
+@media (max-width: 668px) {
+  .q-tree-container {
+    width: 350px !important;
+    /* Add any other specific styles for smaller screens if needed */
+  }
+}
+
+@media (max-width: 500px) {
+  .q-tree-container {
+    width: 100% !important;
+    /* Add any other specific styles for smaller screens if needed */
+  }
+}
+.q-tree {
+  list-style: none;
+  margin: 4px 0 2px;
+  height: 250px;
+  overflow: scroll;
+}
+
+.q-tree::-webkit-scrollbar {
+  width: 8px; /* Sets the width of the scrollbar */
+}
+
+.q-tree::-webkit-scrollbar-thumb {
+  background-color: #888888; /* Sets the color of the scrollbar thumb */
+}
+.q-tree::-webkit-scrollbar-track {
+  background-color: #ffffff; /* Sets the color of the scrollbar track */
+}
+
+/* end query builder css */
+
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+/* 
+.header-center
+{
+  position: relative;
+  width: auto;
+} */
+
+
+/* .header-center .header-center-content
+{
+  position: relative;
+  float: right;
+} */
+
+.header-toolbar .header-buttons{
+  display: flex;
+  width: 257px;
+  height: 37px;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-around;
+}
+
+.lar{
+  font-size: 22px;
+
+}
+
+
+/* .header-toolbar .header-buttons .header-buttons-content{
+  width: 80px;
+} */
+
+.header-toolbar .header-dynamic-search{
+  /* old with dynamc search */
+  /* width: 265px; */  
+
+  /* new  search  and add button*/
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  width: 140px;
+}
+
+/* .header-toolbar button {
+  margin-right: 10px;
+} */
+
+.frame-section1 {
+  margin-bottom: 75px;
+}
+
+.scrollable-modal {
+  height: 75vh;
+  overflow-y: auto;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.selected-item {
+  max-width: 100% !important;
+}
+
+.modal {
+  overflow: hidden !important;
+}
+
+.dropdown-btn {
+  padding: 0 !important;
+  padding-left: 12px !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  border: 1px solid lightgrey !important;
+}
+
+.dropdown-multiselect__caret {
+  top: 8px !important;
+}
+
+.cdk-global-overlay-wrapper,
+.cdk-overlay-container {
+  z-index: 99999 !important;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field input {
+  box-shadow: none !important;
+}
+
+/** Alertify JS **/
+
+.ajs-modal .ajs-dialog {
+  max-width: 500px !important;
+}
+
+.ajs-modal .ajs-header,
+.ajs-modal .ajs-body,
+.ajs-modal .ajs-footer,
+.ajs-modal .ajs-dialog {
+  background-color: var(--alertifyjs-bg-color);
+  color: var(--black-color);
+}
+
+.ajs-modal .ajs-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.ajs-modal .ajs-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.ajs-modal .ajs-body .ajs-content {
+  display: flex;
+  align-items: center
+}
+
+.ajs-modal .ajs-body .ajs-content svg {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.ajs-modal .ajs-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px !important;
+}
+
+.ajs-modal .ajs-footer button {
+  background-color: transparent;
+  border: 0;
+  border: 1.5px solid var(--black-color);
+  border-radius: 5px;
+  color: var(--black-color);
+}
+
+.ajs-modal .ajs-footer button:hover {
+  background-color: var(--black-color);
+  color: var(--alertifyjs-bg-color);
+}
+
+.scrollbar-width-thin {
+  scrollbar-width: thin;
+}
+
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+
+/* position */
+.toast-center-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.toast-top-center {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-full-width {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-left {
+  top: 12px;
+  left: 12px;
+}
+.toast-top-right {
+  top: 12px;
+  right: 12px;
+}
+.toast-bottom-right {
+  right: 12px;
+  bottom: 12px;
+}
+.toast-bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+
+/* toast styles */
+.toast-title {
+  font-weight: bold;
+}
+.toast-message {
+  word-wrap: break-word;
+}
+.toast-message a,
+.toast-message label {
+  color: #FFFFFF;
+}
+.toast-message a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+.toast-close-button {
+  position: relative;
+  right: -0.3em;
+  top: -0.3em;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #ffffff;
+  /* opacity: 0.8; */
+}
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+}
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.toast-container {
+  pointer-events: none;
+  position: fixed;
+  z-index: 999999;
+}
+.toast-container * {
+  box-sizing: border-box;
+}
+.toast-container .ngx-toastr {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  box-shadow: 0 0 12px #999999;
+  color: #FFFFFF;
+}
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 12px #000000;
+  opacity: 1;
+  cursor: pointer;
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/info-circle.svg */
+.toast-info {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOS4wNDMgOCA4IDExOS4wODMgOCAyNTZjMCAxMzYuOTk3IDExMS4wNDMgMjQ4IDI0OCAyNDhzMjQ4LTExMS4wMDMgMjQ4LTI0OEM1MDQgMTE5LjA4MyAzOTIuOTU3IDggMjU2IDh6bTAgMTEwYzIzLjE5NiAwIDQyIDE4LjgwNCA0MiA0MnMtMTguODA0IDQyLTQyIDQyLTQyLTE4LjgwNC00Mi00MiAxOC44MDQtNDIgNDItNDJ6bTU2IDI1NGMwIDYuNjI3LTUuMzczIDEyLTEyIDEyaC04OGMtNi42MjcgMC0xMi01LjM3My0xMi0xMnYtMjRjMC02LjYyNyA1LjM3My0xMiAxMi0xMmgxMnYtNjRoLTEyYy02LjYyNyAwLTEyLTUuMzczLTEyLTEydi0yNGMwLTYuNjI3IDUuMzczLTEyIDEyLTEyaDY0YzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MTAwaDEyYzYuNjI3IDAgMTIgNS4zNzMgMTIgMTJ2MjR6Jy8+PC9zdmc+");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/times-circle.svg */
+.toast-error {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTI1NiA4QzExOSA4IDggMTE5IDggMjU2czExMSAyNDggMjQ4IDI0OCAyNDgtMTExIDI0OC0yNDhTMzkzIDggMjU2IDh6bTEyMS42IDMxMy4xYzQuNyA0LjcgNC43IDEyLjMgMCAxN0wzMzggMzc3LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwyNTYgMzEybC02NS4xIDY1LjZjLTQuNyA0LjctMTIuMyA0LjctMTcgMEwxMzQuNCAzMzhjLTQuNy00LjctNC43LTEyLjMgMC0xN2w2NS42LTY1LTY1LjYtNjUuMWMtNC43LTQuNy00LjctMTIuMyAwLTE3bDM5LjYtMzkuNmM0LjctNC43IDEyLjMtNC43IDE3IDBsNjUgNjUuNyA2NS4xLTY1LjZjNC43LTQuNyAxMi4zLTQuNyAxNyAwbDM5LjYgMzkuNmM0LjcgNC43IDQuNyAxMi4zIDAgMTdMMzEyIDI1Nmw2NS42IDY1LjF6Jy8+PC9zdmc+");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/check.svg */
+.toast-success {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTE3My44OTggNDM5LjQwNGwtMTY2LjQtMTY2LjRjLTkuOTk3LTkuOTk3LTkuOTk3LTI2LjIwNiAwLTM2LjIwNGwzNi4yMDMtMzYuMjA0YzkuOTk3LTkuOTk4IDI2LjIwNy05Ljk5OCAzNi4yMDQgMEwxOTIgMzEyLjY5IDQzMi4wOTUgNzIuNTk2YzkuOTk3LTkuOTk3IDI2LjIwNy05Ljk5NyAzNi4yMDQgMGwzNi4yMDMgMzYuMjA0YzkuOTk3IDkuOTk3IDkuOTk3IDI2LjIwNiAwIDM2LjIwNGwtMjk0LjQgMjk0LjQwMWMtOS45OTggOS45OTctMjYuMjA3IDkuOTk3LTM2LjIwNC0uMDAxeicvPjwvc3ZnPg==");
+}
+/* https://github.com/FortAwesome/Font-Awesome-Pro/blob/master/advanced-options/raw-svg/regular/exclamation-triangle.svg */
+.toast-warning {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1NzYgNTEyJyB3aWR0aD0nNTc2JyBoZWlnaHQ9JzUxMic+PHBhdGggZmlsbD0ncmdiKDI1NSwyNTUsMjU1KScgZD0nTTU2OS41MTcgNDQwLjAxM0M1ODcuOTc1IDQ3Mi4wMDcgNTY0LjgwNiA1MTIgNTI3Ljk0IDUxMkg0OC4wNTRjLTM2LjkzNyAwLTU5Ljk5OS00MC4wNTUtNDEuNTc3LTcxLjk4N0wyNDYuNDIzIDIzLjk4NWMxOC40NjctMzIuMDA5IDY0LjcyLTMxLjk1MSA4My4xNTQgMGwyMzkuOTQgNDE2LjAyOHpNMjg4IDM1NGMtMjUuNDA1IDAtNDYgMjAuNTk1LTQ2IDQ2czIwLjU5NSA0NiA0NiA0NiA0Ni0yMC41OTUgNDYtNDYtMjAuNTk1LTQ2LTQ2LTQ2em0tNDMuNjczLTE2NS4zNDZsNy40MTggMTM2Yy4zNDcgNi4zNjQgNS42MDkgMTEuMzQ2IDExLjk4MiAxMS4zNDZoNDguNTQ2YzYuMzczIDAgMTEuNjM1LTQuOTgyIDExLjk4Mi0xMS4zNDZsNy40MTgtMTM2Yy4zNzUtNi44NzQtNS4wOTgtMTIuNjU0LTExLjk4Mi0xMi42NTRoLTYzLjM4M2MtNi44ODQgMC0xMi4zNTYgNS43OC0xMS45ODEgMTIuNjU0eicvPjwvc3ZnPg==");
+}
+.toast-container.toast-top-center .ngx-toastr,
+.toast-container.toast-bottom-center .ngx-toastr {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.toast-container.toast-top-full-width .ngx-toastr,
+.toast-container.toast-bottom-full-width .ngx-toastr {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ngx-toastr {
+  background-color: #030303;
+  pointer-events: auto;
+}
+.toast-success {
+  background-color: #51A351;
+}
+.toast-error {
+  background-color: #BD362F;
+}
+.toast-info {
+  background-color: #2F96B4;
+}
+.toast-warning {
+  background-color: #F89406;
+}
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: #000000;
+  opacity: 0.4;
+}
+/* Responsive Design */
+@media all and (max-width: 240px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 11em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  .toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 18em;
+  }
+  .toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  .toast-container .ngx-toastr.div {
+    padding: 15px 15px 15px 50px;
+    width: 25em;
+  }
+}
+
+/* toast  css */
+/* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
+.toast-title {
+  font-weight: bold;
+}
+.toast-message {
+  word-wrap: break-word;
+}
+.toast-message a,
+.toast-message label {
+  color: #FFFFFF;
+}
+.toast-message a:hover {
+  color: #CCCCCC;
+  text-decoration: none;
+}
+.toast-close-button {
+  position: relative;
+  right: -0.3em;
+  top: -0.3em;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0 1px 0 #ffffff;
+  /* opacity: 0.8; */
+}
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.4;
+}
+/*Additional properties for button version
+ iOS requires the button element instead of an anchor tag.
+ If you want the anchor version, it requires `href="#"`.*/
+button.toast-close-button {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}
+.toast-center-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.toast-top-center {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-center {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-full-width {
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-bottom-full-width {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+.toast-top-left {
+  top: 12px;
+  left: 12px;
+}
+.toast-top-right {
+  top: 12px;
+  right: 12px;
+}
+.toast-bottom-right {
+  right: 12px;
+  bottom: 12px;
+}
+.toast-bottom-left {
+  bottom: 12px;
+  left: 12px;
+}
+#toast-container {
+  pointer-events: none;
+  position: fixed;
+  z-index: 999999;
+}
+#toast-container * {
+  box-sizing: border-box;
+}
+#toast-container .ngx-toastr {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  border-radius: 3px 3px 3px 3px;
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 12px #999999;
+  color: #FFFFFF;
+}
+#toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 12px #000000;
+  opacity: 1;
+  cursor: pointer;
+}
+#toast-container .ngx-toastr.toast-info {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=") !important;
+}
+#toast-container .ngx-toastr.toast-error {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=") !important;
+}
+#toast-container .ngx-toastr.toast-success {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADsSURBVEhLY2AYBfQMgf///3P8+/evAIgvA/FsIF+BavYDDWMBGroaSMMBiE8VC7AZDrIFaMFnii3AZTjUgsUUWUDA8OdAH6iQbQEhw4HyGsPEcKBXBIC4ARhex4G4BsjmweU1soIFaGg/WtoFZRIZdEvIMhxkCCjXIVsATV6gFGACs4Rsw0EGgIIH3QJYJgHSARQZDrWAB+jawzgs+Q2UO49D7jnRSRGoEFRILcdmEMWGI0cm0JJ2QpYA1RDvcmzJEWhABhD/pqrL0S0CWuABKgnRki9lLseS7g2AlqwHWQSKH4oKLrILpRGhEQCw2LiRUIa4lwAAAABJRU5ErkJggg==") !important;
+}
+#toast-container .ngx-toastr.toast-warning {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGYSURBVEhL5ZSvTsNQFMbXZGICMYGYmJhAQIJAICYQPAACiSDB8AiICQQJT4CqQEwgJvYASAQCiZiYmJhAIBATCARJy+9rTsldd8sKu1M0+dLb057v6/lbq/2rK0mS/TRNj9cWNAKPYIJII7gIxCcQ51cvqID+GIEX8ASG4B1bK5gIZFeQfoJdEXOfgX4QAQg7kH2A65yQ87lyxb27sggkAzAuFhbbg1K2kgCkB1bVwyIR9m2L7PRPIhDUIXgGtyKw575yz3lTNs6X4JXnjV+LKM/m3MydnTbtOKIjtz6VhCBq4vSm3ncdrD2lk0VgUXSVKjVDJXJzijW1RQdsU7F77He8u68koNZTz8Oz5yGa6J3H3lZ0xYgXBK2QymlWWA+RWnYhskLBv2vmE+hBMCtbA7KX5drWyRT/2JsqZ2IvfB9Y4bWDNMFbJRFmC9E74SoS0CqulwjkC0+5bpcV1CZ8NMej4pjy0U+doDQsGyo1hzVJttIjhQ7GnBtRFN1UarUlH8F3xict+HY07rEzoUGPlWcjRFRr4/gChZgc3ZL2d8oAAAAASUVORK5CYII=") !important;
+}
+#toast-container.toast-top-center .ngx-toastr,
+#toast-container.toast-bottom-center .ngx-toastr {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#toast-container.toast-top-full-width .ngx-toastr,
+#toast-container.toast-bottom-full-width .ngx-toastr {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ngx-toastr {
+  background-color: #030303;
+  pointer-events: auto;
+}
+.toast-success {
+  background-color: #51A351;
+}
+.toast-error {
+  background-color: #BD362F;
+}
+.toast-info {
+  background-color: #2F96B4;
+}
+.toast-warning {
+  background-color: #F89406;
+}
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  background-color: #000000;
+  opacity: 0.4;
+}
+/*Responsive Design*/
+@media all and (max-width: 240px) {
+  #toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 11em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  #toast-container .ngx-toastr.div {
+    padding: 8px 8px 8px 50px;
+    width: 18em;
+  }
+  #toast-container .toast-close-button {
+    right: -0.2em;
+    top: -0.2em;
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  #toast-container .ngx-toastr.div {
+    padding: 15px 15px 15px 50px;
+    width: 25em;
+  }
+}
+
+/* final toast  css */

@@ -1,0 +1,24 @@
+
+<div class="row row-cols-1 row-cols-md-3 g-4" >
+    <div class="col" *ngFor="let array of json">
+      <div  class="card h-100" id="cardId{{array.id}}" (click)="selectCard(array.id)">
+        
+        <input type="hidden" id="{{array.id}}" value="{{array.id}}"  /> 
+        <img [ngClass]="{'cardSelection': isSelected}" id="cardImage{{array.id}}"src="{{array.image}}"  class="card-img-top" alt="Skyscrapers"/>
+        <div [ngClass]="{'cardSelection': isSelected}" id="cardBody{{array.id}}" class="card-body">
+          <h5 class="card-title">{{array.title}}</h5>
+          <p id="card-text" style="white-space: pre-wrap;" class="card-text"  *ngFor="let text of array.body">
+              <!-- {{text}} -->
+              <span [innerHTML]="text"></span>
+          </p>
+        </div>
+        <div [ngClass]="{'cardSelection': isSelected}" id="cardFooter{{array.id}}" class="card-footer">
+          <!-- <small class="text-muted"> -->
+            <span class="card-footer-buttons">
+            <i class="card-footer-btnAction" (click)="updateBtn(array.id)" class="lar la-edit"></i><i (click)="deleteBtn(array.id)" class="las la-trash"></i><i (click)="exportExcelBtn(array.id)" class="lar la-file-excel"></i><i  (click)="exportPdfBtn(array.id)"  class="lar la-file-pdf"></i>
+          </span>
+        <!-- </small> -->
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,51 @@
+<query-builder [(ngModel)]='query' [config]='config'>
+  <ng-container style="width:300px" *queryButtonGroup="let ruleset; let addRule=addRule; let addRuleSet=addRuleSet; let removeRuleSet=removeRuleSet">
+    <button type="button" mat-button class="mat-raised-button mat-primary query-btn" (click)="addRule1()" (click)="addRule()">+</button>
+    <button type="button" mat-button class="mat-raised-button mat-primary query-btn" (click)="search()">Search</button>
+
+    <!-- <button type="button" mat-button (click)="addRuleSet()">+ Ruleset</button>
+    <button type="button" mat-button (click)="removeRuleSet()">- Ruleset</button> -->
+  </ng-container>
+  <ng-container *queryRemoveButton="let rule; let removeRule=removeRule">
+    <button type="button" mat-icon-button color="accent" (click)="removeRule1(rule)" (click)="removeRule(rule)">
+      <mat-icon>remove</mat-icon>
+    </button>
+  </ng-container>
+  <ng-container *querySwitchGroup="let ruleset">
+    <mat-radio-group *ngIf="ruleset" [(ngModel)]="ruleset.condition">
+      <mat-radio-button value="and">And</mat-radio-button>
+      <mat-radio-button value="or">Or</mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+  <ng-container *queryField="let rule; let fields=fields; let onChange=onChange">
+    <mat-form-field>
+      <mat-select [(ngModel)]="rule.field" (ngModelChange)="onChange($event, rule)">
+        <mat-option *ngFor="let field of fields" [value]="field.value">{{field.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *queryOperator="let rule; let operators=operators">
+    <mat-form-field>
+      <mat-select [(ngModel)]="rule.operator">
+        <mat-option *ngFor="let value of operators" [value]="value">{{value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+  <!-- Override input component for 'boolean' type -->
+  <ng-container *queryInput="let rule; type: 'boolean'">
+    <mat-checkbox [(ngModel)]="rule.value"></mat-checkbox>
+  </ng-container>
+  <!-- Override input component for 'category' type -->
+  <ng-container *queryInput="let rule; let field=field; let options=options; type: 'category'">
+    <mat-form-field>
+      <mat-select [(ngModel)]="rule.value" [placeholder]="field.name">
+        <mat-option *ngFor="let opt of options" [value]="opt.value">
+          {{ opt.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+  ...
+</query-builder>
+
+<alert #middleAlert [position]="Position.TopCenter"></alert>

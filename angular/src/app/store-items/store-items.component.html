@@ -1,0 +1,195 @@
+
+<div class="header-toolbar mt-2 mb-2">
+
+  <div class="header-dynamic-search" >
+     <c-button fontawesome="fas fa-search" (click)="openModal(mySearchContent)"></c-button>
+     <c-button fontawesome="fa fa-plus-circle" (click)="openModal(myModalContent)"></c-button>
+
+  </div>
+  <!-- <dynamic-search  menuName="storeItems" [config]="config"  (dynamicSearchBtn)="dynamicSearchBtn($event)"   ></dynamic-search> -->
+
+<!--  
+  <div id="htmlCode">
+
+    <p> test </p>
+
+  </div> -->
+
+  <!-- ngDefaultControl -->
+  <div class="header-buttons">
+    <!-- <div class="header-buttons-content"  >
+      All <input  type="checkbox" #checkItems name="checkItems" (click)="checkAll()"/>
+    </div> -->
+    <div class="header-buttons-content"  >
+      All <input  type="checkbox" #checkItems [(ngModel)]="isChecked" name="checkItems" (click)="checkAllV2()"/>
+    </div>
+    <div class="header-buttons-content"><c-button *ngIf="isSelected" value="Cancel" (click)="cancel()"></c-button><c-button *ngIf="!isSelected" value="Select" (click)="select()"></c-button></div>
+    <!-- <div class="header-buttons-content"></div> -->
+    <div class="header-buttons-content"><c-button fontawesome="lar la-file-excel" (click)="exportExcelAll()"></c-button></div>
+    <div class="header-buttons-content"><c-button fontawesome="lar la-file-pdf" (click)="exportPdfAll()"></c-button></div>
+
+    <!-- <div class="header-buttons-content"><c-button fontawesome="fa fa-plus-circle" (click)="openModal(myModalContent)"></c-button></div> -->
+  </div>
+  
+
+</div>
+<hr>
+
+
+
+<ng-template #mySearchContent>
+  <div class="modal-content">
+    <form [formGroup]="productSearchForm" (ngSubmit)="submitSearchForm()">
+      <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Search Item</h4>
+  
+          <button type="button" #closeModal class="close" aria-label="Close" (click)="modalRef.dismiss('Cross click');">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-container">
+  
+          <c-input formControlName="product_id" type="hidden" [parentForm]="productSearchForm" fieldName="product_id" class="hiddenInput"></c-input>
+          <div class="row">
+            <!-- <div class="col-lg-6"> -->
+                <div class="col-lg-12">
+                    <c-input formControlName="product_desc"  type="text" label="Product Number" placeholder="Product Number"  [parentForm]="productSearchForm" fieldName="product_desc"></c-input>
+                </div>
+                <div class="col-lg-12">
+                  <c-input formControlName="product_gram" type="number" label="Gram" placeholder="Gram"  [parentForm]="productSearchForm" fieldName="product_gram"></c-input>
+               </div>
+                <div class="col-lg-12">
+                    <c-input formControlName="product_stone" type="textarea" label="Stone Size" placeholder="Stone Weight"  [parentForm]="productSearchForm" fieldName="product_stone"></c-input>
+                </div>
+  
+                <div class="col-lg-12">
+                    <c-input formControlName="product_stone_weight" type="text" label="Stone Weight" placeholder="Stone Weight"  [parentForm]="productSearchForm" fieldName="product_stone_weight"></c-input>
+                </div>
+            <!-- </div> -->
+            <!-- <div class="col-lg-6"> -->
+              <div class="col-lg-12">
+                  <c-input formControlName="product_size" type="textarea" label="Size" placeholder="Size"  [parentForm]="productSearchForm" fieldName="product_size"></c-input>
+              </div>
+  
+              <div class="col-lg-12">
+                  <c-input formControlName="product_other1" type="textarea" label="Other 1" placeholder="Other 1"  [parentForm]="productSearchForm" fieldName="product_other1"></c-input>
+              </div>
+              <div class="col-lg-12">
+                  <c-input formControlName="product_other2" type="textarea" label="Other 2" placeholder="Other 2"  [parentForm]="productSearchForm" fieldName="product_other2"></c-input>
+              </div>
+              <div class="col-lg-12">
+                <c-input formControlName="product_price" type="number" label="Price In USD" placeholder="Price In USD"  [parentForm]="productSearchForm" fieldName="product_price"></c-input>
+            </div>
+            <!-- </div> -->
+          </div>
+  
+        </div>
+         
+<!--   
+          <div class="image-container" >
+  
+            <a mdbRipple  (click)="openFullScreen()">
+              <img
+                alt="example"
+                class="img-fluid rounded"
+                [src]="imageUrl"
+              />
+              </a>
+  
+        </div> -->
+  
+      </div>
+      <div class="modal-footer">
+          <c-button btnActionType="submit"  [parentForm]="productSearchForm" btnType="form"  value="Seacrh"></c-button>
+      </div>
+    
+  </form>
+  
+  </div>
+  
+     </ng-template>
+<ng-template #myModalContent>
+<div class="modal-content">
+  <form [formGroup]="productForm" (ngSubmit)="submitForm('add')">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title"  *ngIf="modeType === 'saveNew'">Add Item</h4>
+        <h4 class="modal-title" id="modal-basic-title"  *ngIf="modeType !== 'saveNew'">Update Item</h4>
+
+        <button type="button" #closeModal class="close" aria-label="Close" (click)="modalRef.dismiss('Cross click');">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-container">
+
+        <c-input formControlName="product_id" type="hidden" [parentForm]="productForm" fieldName="product_id" class="hiddenInput"></c-input>
+        <div class="row">
+          <!-- <div class="col-lg-6"> -->
+              <div class="col-lg-12">
+                  <c-input formControlName="product_desc" (change)="productDescOnChange()" type="text" label="Product Number" placeholder="Product Number" required="true" [parentForm]="productForm" fieldName="product_desc"></c-input>
+              </div>
+              <div class="col-lg-12">
+                <c-input formControlName="product_gram" type="number" label="Gram" placeholder="Gram"  [parentForm]="productForm" fieldName="product_gram"></c-input>
+             </div>
+              <div class="col-lg-12">
+                  <c-input formControlName="product_stone" type="textarea" label="Stone Size" placeholder="Stone Weight"  [parentForm]="productForm" fieldName="product_stone"></c-input>
+              </div>
+
+              <div class="col-lg-12">
+                  <c-input formControlName="product_stone_weight" type="text" label="Stone Weight" placeholder="Stone Weight"  [parentForm]="productForm" fieldName="product_stone_weight"></c-input>
+              </div>
+          <!-- </div> -->
+          <!-- <div class="col-lg-6"> -->
+            <div class="col-lg-12">
+                <c-input formControlName="product_size" type="textarea" label="Size" placeholder="Size"  [parentForm]="productForm" fieldName="product_size"></c-input>
+            </div>
+
+            <div class="col-lg-12">
+                <c-input formControlName="product_other1" type="textarea" label="Other 1" placeholder="Other 1"  [parentForm]="productForm" fieldName="product_other1"></c-input>
+            </div>
+            <div class="col-lg-12">
+                <c-input formControlName="product_other2" type="textarea" label="Other 2" placeholder="Other 2"  [parentForm]="productForm" fieldName="product_other2"></c-input>
+            </div>
+            <div class="col-lg-12">
+              <c-input formControlName="product_price" type="number" label="Price In USD" placeholder="Price In USD"  [parentForm]="productForm" fieldName="product_price"></c-input>
+          </div>
+          <!-- </div> -->
+        </div>
+
+      </div>
+       
+
+        <div class="image-container" >
+
+          <a mdbRipple  (click)="openFullScreen()">
+            <img
+              alt="example"
+              class="img-fluid rounded"
+              [src]="imageUrl"
+            />
+            </a>
+
+      </div>
+
+    </div>
+    <div class="modal-footer">
+        <c-button btnActionType="submit"  [parentForm]="productForm" btnType="form"  value="Save"></c-button>
+    </div>
+  
+</form>
+
+</div>
+
+   </ng-template>
+
+<app-cards #content (exportPdf)="exportPdf($event)" (exportExcel)="exportExcel($event)"  (edit)="edit($event)" (delete)="delete($event)"  [json]="records">test</app-cards>
+<alert #middleAlert [position]="Position.TopCenter"></alert>
+<div style="display: flex;flex-direction: row;justify-content: space-around;padding: 30px;">
+  <!-- <c-button *ngIf="!isDynamicSearch" value="More"  (click)="moreRecords()"></c-button> -->
+  <c-button *ngIf="!isDynamicSearch" value="More"  (click)="moreRecordsV2()"></c-button>
+
+
+</div>
+<!-- <notification></notification> -->
+<c-notification></c-notification>

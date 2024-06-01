@@ -1,0 +1,17 @@
+/* 
+list-style: none;
+margin: 4px 0 2px;
+width: 537px;
+position: absolute;
+z-index: 1;
+top: 115px;
+opacity: 0.985;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+} */
+.mat-radio-group 
+{
+    width: 115px;
+    display: flex;
+    justify-content: space-around;
+}
+/* ng-valid ng-star-inserted ng-dirty ng-touched */
