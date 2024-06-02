@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "jewelry_dyn_search", schema = "jewelry")
+@Table(name = "jewelry_dyn_search", schema = "jwldba")
 @Data
 @NoArgsConstructor
 public class dynamicSearch {

@@ -1,6 +1,5 @@
 package com.jewelry.app.api.model;
 
-import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "jewelry_products", schema = "jewelry")
+@Table(name = "jewelry_products", schema = "jwldba")
 @Data
 @NoArgsConstructor
 public class jewelry {
